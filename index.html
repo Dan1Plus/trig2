@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт мой для решения</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    
+<div id="app" class="container-fluid">
+    
+    <div id="site" class="content">
+
+        <div class="row">
+            
+            <h1>Графическое решение тригонометрических уравнений</h1>
+            
+        </div>
+    </div>
+</div>
+<div class="slovo">
+    <p>Функция:</p>
+</div>
+<div>
+    <canvas id="canv" width="800" height="600">
+        Ваш браузер не поддерживает Canvas
+    </canvas>
+    <input type = "text" id = "func" value = "sin(x)">
+</div>
+
+<div>
+
+    <div class="face">
+    <fieldset>
+        <legend> <h2>Параметры:</legend></h2>
+        <span class = "hdr" >Границы по Х:</span><br>
+        <span>⠀x_left:</span><span></span> <input type="text" id="x_left" class = "num" value = "-10"><br>
+        <span>⠀x_right:⠀⠀⠀⠀⠀⠀</span> <span></span><input type="text" id="x_right" class = "num" value = "10"><br>
+
+        <span class = "hdr">Границы по Y:</span><br>
+        <span>⠀y_down:</span> <span></span><input type="text" id="y_down" class = "num" value = "-10"><br>
+        <span>⠀y_up:</span> <span></span><input type="text" id="y_up" class = "num" value = "10"><br>
+    
+        <span class = "hdr">Цвет графика:</span><br>
+        <select id="pencolor" onchange='set_color();'>
+            <option value="red">Красный</option>
+            <option value="green">Зелёный</option>
+            <option value="blue" selected>Синий</option>
+            <option value="brown">Коричневый</option>
+            <option value="yellow">Жёлтый</option>
+            <option value="purple">Фиолетовый</option>
+            <option value="orange">Оранжевый</option>
+            <option value="gray">Серый</option>
+        </select>
+
+        <br>
+        <input type="button" id = 'btn' value = "Построить график" onclick="draw_graph();"><br>
+        <input type="button" value = "Стереть всё" onclick="clear_canv();">
+    </fieldset>
+    </div>
+
+</div>
+
+<div>
+    <div class="descrip">
+        <h2>Описание работы сайта</h2>
+        <p>Данный сайт может помочь Вам в решении различных уравнений графическим способом. Чтобы воспользоваться сайтом, необходимо иметь хотя бы одно уравнение, чтобы построить его график. Если уравнений несколько, то функционал сайта позволяет представить их всех на одной координатной плоскости. 
+            Те координаты точек по оси Ох, где графики пересекаются, будут являться корнями уравнения, состоящего из заданных Вами функций. 
+            Увидеть значения координат можно в правом верхнем углу, при перемещении курсора в плоскости координат: сначала пишется числовое значение, потом значение в π (для удобства решения тригонометрических уравнений).
+            Сайт представляет возможность самостоятельно выбрать масштабы координатной плоскости. Для этого нужно в специальные поля вписать свои значения: 
+            напротив x_left - минимальное значение оси ОХ; напротив x_right - максимальное значение оси ОХ; напротив y_min - минимальное значение оси ОY; 
+            напротив y_max - максимальное значение оси ОY (дробные значения пишутся через точку). Вы также можете выбрать цвет графика, который собираетесь построить (доступно восемь цветов). </p>
+        <p> Далее необходимо вписать свою функцию в соответствующее поле (снизу от графического блока). 
+            Все дробные значения необходимо писать через точку, операцию умножения нужно прописывать с помощью знака "*", деления -  "/". Модуль x: abs(x); синус х: sin(x); косинус x: cos(x); тангенс х: tan(x); котангенс x: ctan(x); квадратный корень из х: sqrt(x); экспонента: exp(x); логарифм числа х по основанию a: log(a,x); число х в степени a: step(x,a).</p>
+        <p>При нажатии на кнопку "Построить график", будет нарисован график введённой функции в заданной по размерам системе координат. Можно рисовать сколько угодно графиков. 
+            Если захочется изменить масштаб или удалить графики, то это можно осуществить, предварительно нажав кнопку "Стереть всё".</p>
+        <p>Данный инструмент вполне позволяет решать различные уравнения школьной программы, а также с его помощью можно проверить правильность аналитических решений уравнений.</p>
+    </div>
+</div>
+  
+<script src="trig.js"></script>
+</body>
+</html>
